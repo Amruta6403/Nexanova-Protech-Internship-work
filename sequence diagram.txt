@@ -1,0 +1,46 @@
+Student     System     Database     Admin     Counselor
+   |           |            |          |           |
+   |---------> |            |          |           |
+   | Submit Enquiry         |          |           |
+   |           |--------->  |          |           |
+   |           | Save Enquiry          |           |
+   |           |            |<---------|           |
+   |           | Assign Counselor      |           |
+   |           |------------->         |---------->|
+   |           | Notify Assignment     | Counselor |
+   |           |                       |           |
+   |           |<-------------------------------   |
+   |           | Open Enquiry                    |
+   |<-------------------------------------------|
+   | Call Student                               |
+   |------------------------------------------->|
+   |           | Update Status                  |
+   |           |---------> Database             |
+   |           | Save Call                      |
+
+
+
+
+
+
+
+
+Student → System : Submit Enquiry
+System → Database : Save Enquiry
+
+Admin → System : Assign Counselor
+System → Counselor : Notify Assignment
+
+Counselor → System : Open Enquiry
+Counselor → Student : Make Call
+Counselor → System : Update Call Status
+System → Database : Save Call Record
+
+System → Counselor : Reminder Notification
+Counselor → System : Update Follow-up
+System → Database : Save Follow-up
+
+Counselor → System : Convert to Admission
+System → Database : Save Admission
+
+System → Admin : Generate Report 
